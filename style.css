@@ -1,0 +1,329 @@
+:root {
+  --rosa-claro: #ffe3ec;
+  --rosa: #ff6b9a;
+  --vermelho: #e6194b;
+  --vinho: #7a0a2c;
+  --texto: #4a1427;
+  --branco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  color: var(--texto);
+  background: linear-gradient(160deg, #ffd1dc 0%, #ffe3ec 40%, #fff0f5 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+/* ---------- corações flutuando ---------- */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -60px;
+  color: var(--rosa);
+  opacity: 0.5;
+  animation: subir linear infinite;
+}
+
+.hearts span:nth-child(1)  { left: 5%;  font-size: 22px; animation-duration: 11s; animation-delay: 0s; }
+.hearts span:nth-child(2)  { left: 12%; font-size: 34px; animation-duration: 14s; animation-delay: 2s; }
+.hearts span:nth-child(3)  { left: 20%; font-size: 18px; animation-duration: 9s;  animation-delay: 4s; }
+.hearts span:nth-child(4)  { left: 28%; font-size: 40px; animation-duration: 16s; animation-delay: 1s; }
+.hearts span:nth-child(5)  { left: 36%; font-size: 24px; animation-duration: 12s; animation-delay: 6s; }
+.hearts span:nth-child(6)  { left: 44%; font-size: 30px; animation-duration: 10s; animation-delay: 3s; }
+.hearts span:nth-child(7)  { left: 52%; font-size: 20px; animation-duration: 13s; animation-delay: 7s; }
+.hearts span:nth-child(8)  { left: 60%; font-size: 36px; animation-duration: 15s; animation-delay: 0.5s; }
+.hearts span:nth-child(9)  { left: 68%; font-size: 22px; animation-duration: 11s; animation-delay: 5s; }
+.hearts span:nth-child(10) { left: 75%; font-size: 28px; animation-duration: 12s; animation-delay: 8s; }
+.hearts span:nth-child(11) { left: 82%; font-size: 18px; animation-duration: 9s;  animation-delay: 2.5s; }
+.hearts span:nth-child(12) { left: 88%; font-size: 38px; animation-duration: 17s; animation-delay: 4.5s; }
+.hearts span:nth-child(13) { left: 94%; font-size: 24px; animation-duration: 13s; animation-delay: 1.5s; }
+.hearts span:nth-child(14) { left: 48%; font-size: 16px; animation-duration: 8s;  animation-delay: 9s; }
+.hearts span:nth-child(15) { left: 15%; font-size: 26px; animation-duration: 14s; animation-delay: 10s; }
+
+@keyframes subir {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.6; }
+  100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
+
+/* ---------- abertura ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vinho);
+  opacity: 0.8;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(4rem, 18vw, 8rem);
+  color: var(--vermelho);
+  line-height: 1.1;
+  text-shadow: 0 6px 20px rgba(230, 25, 75, 0.25);
+}
+
+.big-heart {
+  font-size: clamp(5rem, 22vw, 9rem);
+  color: var(--vermelho);
+  line-height: 1;
+  margin: 10px 0;
+  animation: bater 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 10px 25px rgba(230, 25, 75, 0.4));
+}
+
+@keyframes bater {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.18); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.12); }
+}
+
+h2 {
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  color: var(--vinho);
+  font-weight: 700;
+}
+
+.scroll-hint {
+  margin-top: 40px;
+  font-size: 0.95rem;
+  color: var(--vinho);
+  opacity: 0.6;
+  animation: flutuar 2s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+/* ---------- cartões ---------- */
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 36px 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 40px rgba(122, 10, 44, 0.12);
+  border: 2px solid rgba(255, 107, 154, 0.3);
+  text-align: center;
+}
+
+.card h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2rem, 7vw, 2.6rem);
+  color: var(--vermelho);
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card strong {
+  color: var(--vermelho);
+}
+
+/* eu te amo */
+.love {
+  background: linear-gradient(135deg, var(--vermelho), var(--rosa));
+  color: var(--branco);
+  border: none;
+}
+
+.love h3 {
+  color: var(--branco);
+}
+
+.love-text {
+  font-size: clamp(2.6rem, 12vw, 4.5rem) !important;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.love-text span {
+  display: inline-block;
+  animation: bater 1.2s ease-in-out infinite;
+}
+
+/* medidor 100% */
+.meter {
+  width: 100%;
+  height: 46px;
+  background: var(--rosa-claro);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0 18px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--rosa), var(--vermelho));
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 18px;
+  animation: encher 2.5s ease-out 0.5s forwards;
+}
+
+.meter-fill span {
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+@keyframes encher {
+  to { width: 100%; }
+}
+
+.meter-caption {
+  font-weight: 700;
+  color: var(--vinho);
+}
+
+/* promessas */
+.promises {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.promises li {
+  background: var(--rosa-claro);
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.promises li:hover {
+  transform: translateX(6px);
+}
+
+/* pergunta final (checkbox) */
+.final input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--vermelho), var(--rosa));
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px 34px;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(230, 25, 75, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 14px 30px rgba(230, 25, 75, 0.45);
+}
+
+.final input:focus-visible + .btn {
+  outline: 3px solid var(--vinho);
+  outline-offset: 4px;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s ease, opacity 0.8s ease, margin 0.8s ease;
+}
+
+.final input:checked ~ .btn {
+  display: none;
+}
+
+.final input:checked ~ .answer {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.answer-heart {
+  font-size: 6rem;
+  color: var(--vermelho);
+  line-height: 1;
+  animation: bater 1.2s ease-in-out infinite;
+}
+
+.answer p {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem !important;
+  color: var(--vinho);
+  line-height: 1.3;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--vinho);
+  opacity: 0.7;
+  padding-top: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .meter-fill { width: 100%; }
+  .hearts { display: none; }
+}
